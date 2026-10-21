@@ -9,8 +9,8 @@
 
 | # | 主題 | 關鍵字 | 規模 |
 |---|------|--------|------|
-| [#1](https://github.com/Kaikai8888/geektime-go-basic/pull/1) | 簡訊服務：故障偵測＋非同步 failback | Sliding window、Decorator、背景 retry、並發控制 | +1.4k 行，26 個 commit，含單元測試 |
-| [#2](https://github.com/Kaikai8888/geektime-go-basic/pull/2) | 分散式任務調度：把 cronjob 分給負載最低的節點 | Redis ZSET、分散式鎖、自動續約、節點故障處理 | +0.5k 行，含 Redis e2e 測試 |
+| [#1](https://github.com/Kaikai8888/webook-go-practice/pull/1) | 簡訊服務：故障偵測＋非同步 failback | Sliding window、Decorator、背景 retry、並發控制 | +1.4k 行，26 個 commit，含單元測試 |
+| [#2](https://github.com/Kaikai8888/webook-go-practice/pull/2) | 分散式任務調度：把 cronjob 分給負載最低的節點 | Redis ZSET、分散式鎖、自動續約、節點故障處理 | +0.5k 行，含 Redis e2e 測試 |
 
 ---
 
@@ -61,8 +61,8 @@ AsyncFailBackSmsService        ← 發送失敗時先存進 DB，再交給背景
 
 | 分支 | 內容 |
 |------|------|
-| [`feature/week4_local-code-cache`](https://github.com/Kaikai8888/geektime-go-basic/compare/2ccf386...feature/week4_local-code-cache) | 用 bigcache 實作本地驗證碼快取，取代 Redis：限制發送頻率和驗證次數，並處理並發 |
-| [`feature/week3_k8s-basic`](https://github.com/Kaikai8888/geektime-go-basic/tree/feature/week3_k8s-basic/hw/screen-shot/week3) | 把服務、MySQL、Redis、Nginx Ingress 部署到 K8s |
+| [`feature/week4_local-code-cache`](https://github.com/Kaikai8888/webook-go-practice/compare/2ccf386...feature/week4_local-code-cache) | 用 bigcache 實作本地驗證碼快取，取代 Redis：限制發送頻率和驗證次數，並處理並發 |
+| [`feature/week3_k8s-basic`](https://github.com/Kaikai8888/webook-go-practice/tree/feature/week3_k8s-basic/hw/screen-shot/week3) | 把服務、MySQL、Redis、Nginx Ingress 部署到 K8s |
 
 ## 技術棧
 
