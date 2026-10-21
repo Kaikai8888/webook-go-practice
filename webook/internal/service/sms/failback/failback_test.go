@@ -2,6 +2,7 @@ package failback
 
 import (
 	"context"
+	"errors"
 	"testing"
 	"time"
 
@@ -22,6 +23,8 @@ func TestFaultDetect_SlidingWindow(t *testing.T) {
 		tplId                    = "mock-tpl-id"
 		number                   = "12345678"
 	)
+
+	errDb := errors.New("db error")
 
 	config := domain.SmsRequestRetryConfig{
 		GetRecordsInterval: time.Duration(1 * time.Second),
@@ -49,6 +52,23 @@ func TestFaultDetect_SlidingWindow(t *testing.T) {
 				return smsSvc, repo
 			},
 			wantResult: nil,
+		}, {
+			name: "ratelimit.ErrLimited occurs, failed to save request to db, return error without retry",
+			mocks: func(ctrl *gomock.Controller) (sms.Service, repository.SmsRequestRepository) {
+				smsSvc := smsmocks.NewMockService(ctrl)
+				smsSvc.EXPECT().Send(gomock.Any(), tplId, gomock.Any(), number).
+					Return(ratelimit.ErrLimited).Times(1)
+
+				repo := repomocks.NewMockSmsRequestRepository(ctrl)
+				repo.EXPECT().Create(gomock.Any(), domain.SmsRequest{
+					TplId:   tplId,
+					Numbers: []string{number},
+				}).Return(int64(0), errDb).Times(1)
+
+				return smsSvc, repo
+			},
+			wantResult: errDb,
+			wait:       config.GetRecordsInterval * 2,
 		}, {
 			name: "ratelimit.ErrLimited occurs, retry once and success",
 			mocks: func(ctrl *gomock.Controller) (sms.Service, repository.SmsRequestRepository) {

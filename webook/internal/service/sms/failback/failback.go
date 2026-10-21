@@ -52,7 +52,10 @@ func (s *AsyncFailBackSmsService) Send(ctx context.Context, tplId string, args [
 			Args:    args,
 			Numbers: numbers,
 		}
-		s.smsRequestRepo.Create(ctx, request)
+		// 存不进db就无法retry, 直接回传错误, 不能视为之后会重试
+		if _, err := s.smsRequestRepo.Create(ctx, request); err != nil {
+			return err
+		}
 
 		// start retry background job if not reaching limit
 		count := atomic.LoadInt64(&s.activatedGoroutineCount)
