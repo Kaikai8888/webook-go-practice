@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/internal/service/code.go -package=svcmocks -destination=./webook/internal/service/mocks/code.mock.go
 //
+
 // Package svcmocks is a generated GoMock package.
 package svcmocks
 

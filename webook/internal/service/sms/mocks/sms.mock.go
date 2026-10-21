@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/internal/service/sms/types.go -package=smsmocks -destination=./webook/internal/service/sms/mocks/sms.mock.go
 //
+
 // Package smsmocks is a generated GoMock package.
 package smsmocks
 

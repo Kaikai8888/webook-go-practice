@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/internal/repository/cache/code.go -package=cachemocks -destination=./webook/internal/repository/cache/mocks/code.mock.go
 //
+
 // Package cachemocks is a generated GoMock package.
 package cachemocks
 

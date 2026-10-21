@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/pkg/limiter/types.go -package=limitermocks -destination=./webook/pkg/limiter/mocks/limiter.mock.go
 //
+
 // Package limitermocks is a generated GoMock package.
 package limitermocks
 

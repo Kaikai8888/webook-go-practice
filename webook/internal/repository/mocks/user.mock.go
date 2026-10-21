@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/internal/repository/user.go -package=repomocks -destination=./webook/internal/repository/mocks/user.mock.go
 //
+
 // Package repomocks is a generated GoMock package.
 package repomocks
 

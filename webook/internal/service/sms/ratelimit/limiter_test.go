@@ -3,13 +3,14 @@ package ratelimit
 import (
 	"context"
 	"errors"
+	"testing"
+
 	"gitee.com/geekbang/basic-go/webook/internal/service/sms"
 	smsmocks "gitee.com/geekbang/basic-go/webook/internal/service/sms/mocks"
 	"gitee.com/geekbang/basic-go/webook/pkg/limiter"
 	limitermocks "gitee.com/geekbang/basic-go/webook/pkg/limiter/mocks"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
-	"testing"
 )
 
 func TestRateLimitSMSService_Send(t *testing.T) {
@@ -41,7 +42,7 @@ func TestRateLimitSMSService_Send(t *testing.T) {
 				l.EXPECT().Limit(gomock.Any(), gomock.Any()).Return(true, nil)
 				return svc, l
 			},
-			wantErr: errLimited,
+			wantErr: ErrLimited,
 		},
 		{
 			name: "限流器错误",

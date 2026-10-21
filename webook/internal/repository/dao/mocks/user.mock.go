@@ -5,6 +5,7 @@
 //
 //	mockgen -source=./webook/internal/repository/dao/user.go -package=daomocks -destination=./webook/internal/repository/dao/mocks/user.mock.go
 //
+
 // Package daomocks is a generated GoMock package.
 package daomocks
 
