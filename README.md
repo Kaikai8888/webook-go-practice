@@ -11,7 +11,6 @@
 |---|------|--------|------|
 | [#1](https://github.com/Kaikai8888/geektime-go-basic/pull/1) | 簡訊服務：故障偵測＋非同步 failback | Sliding window、Decorator、背景 retry、並發控制 | +1.4k 行，26 個 commit，含單元測試 |
 | [#2](https://github.com/Kaikai8888/geektime-go-basic/pull/2) | 分散式任務調度：把 cronjob 分給負載最低的節點 | Redis ZSET、分散式鎖、自動續約、節點故障處理 | +0.5k 行，含 Redis e2e 測試 |
-| [#3](https://github.com/Kaikai8888/geektime-go-basic/pull/3) | 測試：分散式鎖自動續約 | 整合測試 | 小型 |
 
 ---
 
