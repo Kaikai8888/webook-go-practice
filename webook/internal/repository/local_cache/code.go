@@ -149,7 +149,7 @@ func (c *LocalCodeCache) Verify(ctx context.Context, biz, phone, code string) (b
 }
 
 func (c *LocalCodeCache) key(biz, phone string) string {
-	return fmt.Sprint("%s:%s", biz, phone)
+	return fmt.Sprintf("%s:%s", biz, phone)
 }
 
 func (c *LocalCodeCache) ExceedVerifyLimit(code *Code) bool {
